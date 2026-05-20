@@ -255,3 +255,6 @@ C:\Users\Andy\Documents\New folder\obj\Debug\net8.0\refint\WebsiteProject.dll
 C:\Users\Andy\Documents\New folder\obj\Debug\net8.0\WebsiteProject.pdb
 C:\Users\Andy\Documents\New folder\obj\Debug\net8.0\WebsiteProject.genruntimeconfig.cache
 C:\Users\Andy\Documents\New folder\obj\Debug\net8.0\ref\WebsiteProject.dll
+C:\Users\Andy\Documents\New folder\obj\Debug\net8.0\WebsiteProject.sourcelink.json
+C:\Users\Andy\Documents\New folder\obj\Debug\net8.0\scopedcss\Components\Pages\Register.razor.rz.scp.css
+C:\Users\Andy\Documents\New folder\obj\Debug\net8.0\scopedcss\Components\Pages\Login.razor.rz.scp.css

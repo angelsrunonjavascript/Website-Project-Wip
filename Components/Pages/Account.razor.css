@@ -5,8 +5,8 @@
 }
 
 .accBody {
-    position: fixed;
-    inset: 0;
+    min-width: 70vw;
+    min-height: 80vh;
 
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
@@ -33,4 +33,17 @@
 .form-group {
     display: flex;
     flex-direction: column;
+}
+
+.signin-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: center;
 }

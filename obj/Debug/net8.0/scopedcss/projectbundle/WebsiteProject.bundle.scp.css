@@ -3,19 +3,18 @@ div[b-h9li5ba2vp] {
     user-select: none;
 }
 
-.background[b-h9li5ba2vp] {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("Images/backgroundsea.jpg");
-    background-position: center;
-    z-index: -1;
-    opacity: 0.5;
+.page.light[b-h9li5ba2vp] {
+    background-image: url('/Images/backgroundsea.jpg');
+    background-size: cover; 
 }
 
-.page[b-h9li5ba2vp] {
+.page.dark[b-h9li5ba2vp] {
+    background-image: url('/Images/background_dark.jpg');
+    background-size: cover; 
+    filter: brightness(0.7);
+}
+
+.page[b-h9li5ba2vp] { 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -191,6 +190,7 @@ main[b-h9li5ba2vp] {
 .switch input:checked + .slider .moon[b-h9li5ba2vp] {
     opacity: 0;
 }
+
 /* /Components/Layout/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-1iblrpp96a] {
     appearance: none;
@@ -311,8 +311,8 @@ main[b-h9li5ba2vp] {
 }
 
 .accBody[b-po0xdhkfib] {
-    position: fixed;
-    inset: 0;
+    min-width: 70vw;
+    min-height: 80vh;
 
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
@@ -339,6 +339,19 @@ main[b-h9li5ba2vp] {
 .form-group[b-po0xdhkfib] {
     display: flex;
     flex-direction: column;
+}
+
+.signin-btn[b-po0xdhkfib] {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: center;
 }
 /* /Components/Pages/Home.razor.rz.scp.css */
 .description[b-gjfvguo58t] {
@@ -374,4 +387,104 @@ main[b-h9li5ba2vp] {
 .explore-button:active[b-gjfvguo58t] {
     background-color: #004085;
     transform: translateY(1px) scale(0.97);
+}
+/* /Components/Pages/Login.razor.rz.scp.css */
+*[b-k97baqvn0a] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.accBody[b-k97baqvn0a] {
+    min-width: 70vw;
+    min-height: 80vh;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container[b-k97baqvn0a] {
+    background: #d1d1d16e;
+    padding: 40px;
+    border-radius: 16px;
+
+    width: 380px;
+    height: 400px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group[b-k97baqvn0a] {
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-btn[b-k97baqvn0a] {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: center;
+}
+/* /Components/Pages/Register.razor.rz.scp.css */
+*[b-x7o8xqqtgx] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.accBody[b-x7o8xqqtgx] {
+    min-width: 70vw;
+    min-height: 80vh;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-container[b-x7o8xqqtgx] {
+    background: #d1d1d16e;
+    padding: 40px;
+    border-radius: 16px;
+
+    width: 380px;
+    height: 500px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group[b-x7o8xqqtgx] {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-btn[b-x7o8xqqtgx] {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: center;
 }

@@ -1,1 +1,77 @@
 @page "/register"
+@rendermode InteractiveServer
+@using System.ComponentModel.DataAnnotations    
+@inject NavigationManager NavigationManager 
+
+<head>
+    <PageTitle>Register</PageTitle>
+</head>
+
+<div class="accBody">
+    <div class="register-container">
+        <div class="register-header">
+            <h1>Sign Up</h1>
+        </div>
+
+        <br />
+
+        <EditForm Model="@registermodel" OnValidSubmit="@HandleRegister">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <InputText id="username" class="form-control" @bind-Value="registermodel.Username" />
+                <ValidationMessage For="@(() => registermodel.Username)" />
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <InputText id="email" class="form-control" @bind-Value="registermodel.Email" />
+                <ValidationMessage For="@(() => registermodel.Email)" />
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <InputText id="password" type="password" class="form-control" @bind-Value="registermodel.Password" />
+                <ValidationMessage For="@(() => registermodel.Password)" />
+            </div>
+            
+            <br />
+
+            <button type="submit" class="register-btn">Sign Up</button>
+
+            <br />
+
+            <p>Already have an account? <a href="/account">Sign in here.</a></p>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private RegisterModel registermodel = new RegisterModel();
+
+    private void HandleRegister()
+    {
+        NavigationManager.NavigateTo("/account");
+    }
+
+    public class RegisterModel
+    {
+        [Required]
+        public string Username { get; set; } = string.Empty;
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        [Required]
+        [MinLength(6, ErrorMessage = "Password must be at least 6 characters long.")]
+        public string Password { get; set; } = string.Empty;
+
+    }
+}

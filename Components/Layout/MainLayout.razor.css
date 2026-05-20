@@ -2,19 +2,7 @@ div {
     user-select: none;
 }
 
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("Images/backgroundsea.jpg");
-    background-position: center;
-    z-index: -1;
-    opacity: 0.5;
-}
-
-.page {
+.page { 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -190,3 +178,4 @@ main {
 .switch input:checked + .slider .moon {
     opacity: 0;
 }
+
