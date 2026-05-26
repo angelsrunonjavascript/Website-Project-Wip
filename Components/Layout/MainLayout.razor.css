@@ -7,22 +7,12 @@ div {
     user-select: none;
 }
 
-
 .page { 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-.page.dark {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-.page.light {
-    background-color: #7d1b1b;
-    color: #000000;
-}
 
 main {
     align-items: center;
@@ -120,17 +110,9 @@ main {
         right: 0.75rem;
         top: 0.5rem;
     }
-
-.darkmode {
-    position: fixed;
-    top: 1rem;
-    right: 2rem;
-    z-index: 1000;
-}
-
 .theme-button {
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -149,3 +131,55 @@ main {
     transform: scale(0.95);
 }
 
+.top-bar {
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 1000;
+}
+
+.profile-button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+}
+
+.profile-button:hover {
+    background: rgba(0, 0, 0, 0.12);
+    transform: scale(1.05);
+}
+
+[data-theme="dark"] .profile-button {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+[data-theme="dark"] .profile-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .theme-button {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+[data-theme="dark"] .theme-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}

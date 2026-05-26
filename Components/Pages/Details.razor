@@ -1,0 +1,110 @@
+@page "/details/{Id:int}"
+
+@using WebsiteProject.Data
+@using WebsiteProject.Models
+@using Microsoft.EntityFrameworkCore
+
+@inject AppDbContext Db
+
+<PageTitle>Drink Details</PageTitle>
+
+@if (drink == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div class="details-container">
+
+        <div class="image-section">
+            <img src="@drink.ImageUrl" class="drink-image" />
+        </div>
+
+        <div class="info-section">
+
+            <h1>@drink.Brand @drink.Name</h1>
+
+            <p class="flavor">
+                <strong>Flavor:</strong> @drink.Flavor
+            </p>
+
+            <p class="description">
+                @drink.Description
+            </p>
+
+            <div class="stats">
+                <p><strong>Caffeine:</strong> @drink.CaffeineContent mg</p>
+                <p><strong>Serving Size:</strong> @drink.ServingSize</p>
+            </div>
+
+            <div class="ingredients">
+                <h3>Ingredients</h3>
+                <p>@drink.Ingredients</p>
+            </div>
+
+            <button class="favorite-btn" @onclick="ToggleFavorite" disabled="@isBusy">
+                @(isFavorite ? "★ Remove Favorite" : "☆ Add to Favorites")
+            </button>
+
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private EnergyDrink? drink;
+    private User? currentUser;
+
+    private bool isFavorite;
+    private bool isBusy;
+
+    protected override async Task OnInitializedAsync()
+    {
+        drink = await Db.EnergyDrinks
+            .FirstOrDefaultAsync(d => d.Id == Id);
+
+        currentUser = await Db.Users.FirstOrDefaultAsync();
+
+        if (currentUser != null)
+        {
+            isFavorite = await Db.Favorites
+                .AnyAsync(f => f.UserId == currentUser.Id && f.EnergyDrinkId == Id);
+        }
+    }
+
+    private async Task ToggleFavorite()
+    {
+        if (isBusy || currentUser == null || drink == null)
+            return;
+
+        isBusy = true;
+
+        var existing = await Db.Favorites
+            .FirstOrDefaultAsync(f =>
+                f.UserId == currentUser.Id &&
+                f.EnergyDrinkId == Id);
+
+        if (existing == null)
+        {
+            Db.Favorites.Add(new Favorite
+            {
+                UserId = currentUser.Id,
+                EnergyDrinkId = drink.Id
+            });
+
+            isFavorite = true;
+        }
+        else
+        {
+            Db.Favorites.Remove(existing);
+            isFavorite = false;
+        }
+
+        await Db.SaveChangesAsync();
+        isBusy = false;
+
+        await InvokeAsync(StateHasChanged);
+    }
+}

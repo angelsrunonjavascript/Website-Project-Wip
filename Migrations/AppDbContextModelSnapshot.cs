@@ -14,7 +14,7 @@ namespace WebsiteProject.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.8");
 
             modelBuilder.Entity("WebsiteProject.Models.EnergyDrink", b =>
                 {
@@ -58,11 +58,35 @@ namespace WebsiteProject.Migrations
                     b.ToTable("EnergyDrinks");
                 });
 
+            modelBuilder.Entity("WebsiteProject.Models.Favorite", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("EnergyDrinkId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EnergyDrinkId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favorites");
+                });
+
             modelBuilder.Entity("WebsiteProject.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Bio")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -79,6 +103,25 @@ namespace WebsiteProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("WebsiteProject.Models.Favorite", b =>
+                {
+                    b.HasOne("WebsiteProject.Models.EnergyDrink", "EnergyDrink")
+                        .WithMany()
+                        .HasForeignKey("EnergyDrinkId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebsiteProject.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EnergyDrink");
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,6 +1,9 @@
 @page "/register"
 @rendermode InteractiveServer
 @using System.ComponentModel.DataAnnotations    
+@using WebsiteProject.Data
+@using WebsiteProject.Models
+@inject AppDbContext Db
 @inject NavigationManager NavigationManager 
 
 <head>
@@ -55,11 +58,20 @@
 @code {
     private RegisterModel registermodel = new RegisterModel();
 
-    private void HandleRegister()
+    private async Task HandleRegister()
+{
+    var user = new User
     {
-        NavigationManager.NavigateTo("/account");
-    }
+        Username = registermodel.Username,
+        Email = registermodel.Email,
+        PasswordHash = HashPassword(registermodel.Password)
+    };
 
+    Db.Users.Add(user);
+    await Db.SaveChangesAsync();
+
+    NavigationManager.NavigateTo("/account");
+}
     public class RegisterModel
     {
         [Required]
@@ -74,4 +86,11 @@
         public string Password { get; set; } = string.Empty;
 
     }
+    private string HashPassword(string password)
+{
+    using var sha = System.Security.Cryptography.SHA256.Create();
+    var bytes = System.Text.Encoding.UTF8.GetBytes(password);
+    var hash = sha.ComputeHash(bytes);
+    return Convert.ToBase64String(hash);
+}
 }

@@ -1,0 +1,146 @@
+@page "/profile"
+@using Microsoft.EntityFrameworkCore
+@using WebsiteProject.Services
+@using WebsiteProject.Data
+@using WebsiteProject.Models
+
+@inject AppDbContext Db
+@inject AppState AppState
+@inject NavigationManager NavigationManager
+
+<PageTitle>Profile</PageTitle>
+
+@if (AppState.CurrentUser == null)
+{
+    <p>Redirecting...</p>
+}
+else
+{
+    <div class="profile-container">
+
+        <!-- HEADER -->
+        <div class="profile-header">
+            <h1>@AppState.CurrentUser.Username</h1>
+        </div>
+
+        <!-- MAIN CARD -->
+        <div class="profile-card">
+
+            <p><strong>Username:</strong> @AppState.CurrentUser.Username</p>
+            <p><strong>Email:</strong> @AppState.CurrentUser.Email</p>
+
+            <div class="divider"></div>
+
+            <!-- BIO -->
+            <div class="profile-bio">
+                <p><strong>Bio:</strong></p>
+
+                @if (isEditingBio)
+                {
+                    <textarea class="bio-input" @bind="editedBio"></textarea>
+
+                    <button class="save-btn" @onclick="SaveBio">Save</button>
+                    <button class="cancel-btn" @onclick="CancelEdit">Cancel</button>
+                }
+                else
+                {
+                    <p>
+                        @(string.IsNullOrWhiteSpace(AppState.CurrentUser.Bio)
+                            ? "No bio yet..."
+                            : AppState.CurrentUser.Bio)
+                    </p>
+
+                    <button class="edit-btn" @onclick="EditBio">Edit bio</button>
+                }
+            </div>
+        </div>
+
+      
+        <div class="profile-section">
+            <h3>Favorites</h3>
+
+            @if (favorites == null ||favorites.Count == 0)
+            {
+                <p class="empty">No favorites yet.</p>
+            }
+            else
+            {
+                <div class="drinks-grid">
+                    @foreach (var drink in favorites)
+                    {
+                        <div class="drink-card">
+                            <img src="@drink.ImageUrl" class="drink-image" />
+                            <h4>@drink.Name</h4>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <!-- RECENT -->
+        <div class="profile-section">
+            <h3>Recently Viewed</h3>
+            <p class="empty">Nothing here yet.</p>
+        </div>
+
+        <button class="logout-btn" @onclick="Logout">
+            Log out
+        </button>
+
+    </div>
+}
+
+@code {
+    private List<EnergyDrink> favorites = new();
+
+    private bool isEditingBio = false;
+    private string editedBio = "";
+
+    protected override async Task OnInitializedAsync()
+{
+    if (AppState.CurrentUser == null)
+    {
+        NavigationManager.NavigateTo("/signin");
+        return;
+    }
+
+    favorites = await Db.Favorites
+        .Where(f => f.UserId == AppState.CurrentUser.Id)
+        .Include(f => f.EnergyDrink)
+        .Select(f => f.EnergyDrink)
+        .ToListAsync();
+}
+
+    private void Logout()
+    {
+        AppState.CurrentUser = null;
+        NavigationManager.NavigateTo("/signin");
+    }
+
+    private void EditBio()
+    {
+        editedBio = AppState.CurrentUser.Bio ?? "";
+        isEditingBio = true;
+    }
+
+    private void CancelEdit()
+    {
+        isEditingBio = false;
+    }
+
+    private async Task SaveBio()
+    {
+        var user = await Db.Users.FindAsync(AppState.CurrentUser.Id);
+
+        if (user != null)
+        {
+            user.Bio = editedBio;
+
+            await Db.SaveChangesAsync();
+
+            AppState.CurrentUser.Bio = editedBio;
+        }
+
+        isEditingBio = false;
+    }
+}

@@ -12,7 +12,7 @@
 }
 
 .logo {
-    width: 200px;
+    width: 150px;
     height: 60px;
 }
 
@@ -23,11 +23,14 @@
 .top-row {
     height: 3.5rem;
     background-color: rgba(255, 255, 255, 0);
+    
 }
 
 .navbar-brand {
     font-size: 1.5rem;
     color: white;
+    
+    
 }
 
 .bi {
@@ -38,6 +41,7 @@
     margin-right: 0.75rem;
     top: -1px;
     background-size: cover;
+    
 }
 
 .bi-house-door-fill-nav-menu {
@@ -55,6 +59,7 @@
 .nav-item {
     font-size: 1.1rem;
     padding-bottom: 0.5rem;
+
 }
 
     .nav-item:first-of-type {
@@ -66,7 +71,7 @@
     }
 
     .nav-item ::deep .nav-link {
-        color: #d7d7d7;
+        color: #7374767f;
         background: none;
         border: none;
         border-radius: 4px;
@@ -79,12 +84,12 @@
 
 .nav-item ::deep a.active {
     background-color: rgba(255,255,255,0.37);
-    color: white;
+    color: rgba(128, 206, 255, 0.862);
 }
 
 .nav-item ::deep .nav-link:hover {
     background-color: rgba(255,255,255,0.1);
-    color: white;
+    color: rgba(128, 206, 255, 0.862);
 }
 
 .nav-scrollable {
@@ -101,10 +106,7 @@
     }
 
     .nav-scrollable {
-        /* Never collapse the sidebar for wide screens */
         display: block;
-
-        /* Allow sidebar to scroll for tall menus */
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }

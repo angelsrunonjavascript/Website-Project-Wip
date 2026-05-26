@@ -1,0 +1,49 @@
+*[b-k97baqvn0a] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.accBody[b-k97baqvn0a] {
+    min-width: 70vw;
+    min-height: 80vh;
+
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container[b-k97baqvn0a] {
+    background: #d1d1d16e;
+    padding: 40px;
+    border-radius: 16px;
+
+    width: 380px;
+    height: 400px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.504);
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group[b-k97baqvn0a] {
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-btn[b-k97baqvn0a] {
+    background: #73b0f3;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: center;
+}

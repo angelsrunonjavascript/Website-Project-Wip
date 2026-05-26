@@ -1,0 +1,56 @@
+.details-container[b-hd4mkv526w] {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 60px auto;
+}
+
+.image-section[b-hd4mkv526w] {
+    flex: 1;
+}
+
+.info-section[b-hd4mkv526w] {
+    flex: 2;
+}
+
+.drink-image[b-hd4mkv526w] {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.flavor[b-hd4mkv526w] {
+    margin-top: 10px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.description[b-hd4mkv526w] {
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+.stats[b-hd4mkv526w] {
+    margin-top: 20px;
+}
+
+.ingredients[b-hd4mkv526w] {
+    margin-top: 20px;
+}
+
+.favorite-btn[b-hd4mkv526w] {
+    margin-top: 20px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    background: #ffcc00;
+    color: #111;
+    transition: 0.2s;
+}
+
+.favorite-btn:hover[b-hd4mkv526w] {
+    transform: scale(1.05);
+}

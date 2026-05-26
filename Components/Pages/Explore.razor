@@ -1,3 +1,53 @@
 @page "/explore"
 
+@using Microsoft.EntityFrameworkCore
+@using WebsiteProject.Data
+@using WebsiteProject.Models
+
+@inject AppDbContext Db
+@inject NavigationManager Nav
+
 <PageTitle>Explore</PageTitle>
+
+<div class="search-container">
+    <input
+        type="text"
+        class="search-bar"
+        placeholder="Search drinks..."
+        @bind="searchTerm"
+        @bind:event="oninput" />
+</div>
+
+<div class="drinks-grid">
+    @foreach (var drink in FilteredDrinks)
+    {
+        <div class="drink-card" @onclick="() => OpenDrink(drink)">
+            <img src="@drink.ImageUrl" class="drink-image" />
+
+            <h4>@drink.Brand</h4>
+            <h4>@drink.Name</h4>
+        </div>
+    }
+</div>
+
+@code {
+    private List<EnergyDrink> drinks = new();
+    private string searchTerm = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        drinks = await Db.EnergyDrinks.ToListAsync();
+    }
+
+    private IEnumerable<EnergyDrink> FilteredDrinks =>
+        drinks.Where(d =>
+            string.IsNullOrWhiteSpace(searchTerm)
+            || d.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)
+            || d.Brand.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)
+            || d.Flavor.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
+
+    void OpenDrink(EnergyDrink drink)
+    {
+        Nav.NavigateTo($"/details/{drink.Id}");
+    }
+}

@@ -1,5 +1,7 @@
 ﻿@inherits LayoutComponentBase
 @inject IJSRuntime JS
+@inject NavigationManager NavigationManager
+@inject WebsiteProject.Services.AppState AppState
 
 <div class="background"></div>
 
@@ -9,10 +11,20 @@
         <NavMenu />
     </div>
 
-    <div class="darkmode">
-        <button class="theme-button" @onclick="ToggleTheme">
-            @(isDarkMode ? "☀️" : "🌙")
-        </button>
+    <div class="top-bar">
+
+        <div class="darkmode">
+            <button class="theme-button" @onclick="ToggleTheme">
+                @(isDarkMode ? "☀️" : "🌙")
+            </button>
+        </div>
+
+        <div class="profile">
+            <button class="profile-button" @onclick="GoToProfile">
+                👤
+            </button>
+        </div>
+
     </div>
 
     <main>
@@ -37,6 +49,14 @@
         await ApplyTheme();
 
         StateHasChanged();
+    }
+
+    private void GoToProfile()
+    {
+        if (AppState.CurrentUser == null)
+            NavigationManager.NavigateTo("/signin");
+        else
+            NavigationManager.NavigateTo("/profile");
     }
 
     private async Task ToggleTheme()

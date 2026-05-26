@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using WebsiteProject.Components;
 using WebsiteProject.Data;
+using WebsiteProject.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,7 @@ var dbPath = Path.Combine(Directory.GetCurrentDirectory(), "app.db");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath}"));
+builder.Services.AddSingleton<AppState>();
 
 var app = builder.Build();
 

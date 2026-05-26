@@ -1,7 +1,12 @@
 @page "/signin"
 @rendermode InteractiveServer
 @using System.ComponentModel.DataAnnotations
+@using WebsiteProject.Data
+@using WebsiteProject.Models
+@using WebsiteProject.Services
+@inject AppDbContext Db
 @inject NavigationManager NavigationManager
+@inject AppState AppState
 
 <head>
     <PageTitle>Sign In</PageTitle>
@@ -37,6 +42,11 @@
 
             <button type="submit" class="signin-btn">Sign In</button>
 
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <p style="color:red">@errorMessage</p>
+            }
+
             <br />
 
             <p>Don't have an account? <a href="/register">Register here.</a></p>
@@ -47,9 +57,33 @@
 @code {
     private LoginModel loginmodel = new LoginModel();
 
-    private void HandleLogin()
+    private string? errorMessage;
+
+    private string HashPassword(string password)
     {
-        NavigationManager.NavigateTo("/account");
+        using var sha = System.Security.Cryptography.SHA256.Create();
+        var bytes = System.Text.Encoding.UTF8.GetBytes(password);
+        var hash = sha.ComputeHash(bytes);
+        return Convert.ToBase64String(hash);
+    }
+
+    private async Task HandleLogin()
+    {
+        var hashedPassword = HashPassword(loginmodel.Password);
+
+        var user = Db.Users
+        .FirstOrDefault(u => u.Email == loginmodel.Email);
+
+        if (user != null && user.PasswordHash == hashedPassword)
+        {
+            AppState.CurrentUser = user;  
+
+            NavigationManager.NavigateTo("/profile");
+        }
+        else
+        {
+        errorMessage = "Invalid email or password";
+        }
     }
 
     public class LoginModel
