@@ -19,7 +19,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 80,
                     Ingredients = "Carbonated water, sucrose, glucose, taurine, caffeine, vitamins (B6, B12), and flavorings.",
                     ServingSize = "250 ml",
-                    ImageUrl = "https://example.com/redbull.jpg"
+                    ImageUrl = "/Images/redbull-spring.png"
                 },
                 new EnergyDrink
                 {
@@ -30,7 +30,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 150,
                     Ingredients = "Carbonated water, citric acid, taurine, caffeine, B vitamins (B2, B3, B6, B12), and natural flavors.",
                     ServingSize = "500 ml",
-                    ImageUrl = "https://example.com/monster.jpg"
+                    ImageUrl = "/Images/monster-ultra-sunrise.png"
                 },
                 new EnergyDrink
                 {
@@ -41,7 +41,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 160,
                     Ingredients = "Carbonated water, high fructose corn syrup, citric acid, taurine, caffeine, B vitamins (B3, B6, B12), and natural flavors.",
                     ServingSize = "500 ml",
-                    ImageUrl = "https://example.com/rockstar.jpg"
+                    ImageUrl = "/Images/rockstar-pomegranate-blueberry.png"
                 },
                 new EnergyDrink
                 {
@@ -52,7 +52,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 80,
                     Ingredients = "Carbonated water, citric acid, taurine, caffeine, sweeteners, B vitamins.",
                     ServingSize = "250 ml",
-                    ImageUrl = "https://example.com/redbull-sugarfree.jpg"
+                    ImageUrl = "/Images/redbull-sugarfree.png"
                 },
                 new EnergyDrink
                 {
@@ -63,7 +63,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 160,
                     Ingredients = "Carbonated water, sugar, taurine, caffeine, ginseng extract, B vitamins.",
                     ServingSize = "500 ml",
-                    ImageUrl = "https://example.com/monster-pipeline-punch.jpg"
+                    ImageUrl = "/Images/monster-pipeline-punch.png"
                 },
                 new EnergyDrink
                 {
@@ -74,7 +74,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 160,
                     Ingredients = "Carbonated water, sugar, taurine, caffeine, natural flavors, B vitamins.",
                     ServingSize = "500 ml",
-                    ImageUrl = "https://example.com/monster-mango-loco.jpg"
+                    ImageUrl = "/Images/monster-mango-loco.png"
                 },
                 new EnergyDrink
                 {
@@ -85,7 +85,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 160,
                     Ingredients = "Carbonated water, sugar, taurine, caffeine, guarana extract, B vitamins.",
                     ServingSize = "500 ml",
-                    ImageUrl = "https://example.com/rockstar-original.jpg"
+                    ImageUrl = "/Images/rockstar-original.png"
                 },
                 new EnergyDrink
                 {
@@ -96,7 +96,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 160,
                     Ingredients = "Filtered water, sugar, taurine, caffeine, electrolytes, B vitamins.",
                     ServingSize = "500 ml",
-                    ImageUrl = "https://example.com/rockstar-recovery.jpg"
+                    ImageUrl = "/Images/rockstar-recovery.png"
                 },
                 new EnergyDrink
                 {
@@ -107,7 +107,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 80,
                     Ingredients = "Carbonated water, sugar, taurine, caffeine, guarana, B vitamins.",
                     ServingSize = "250 ml",
-                    ImageUrl = "https://example.com/burn-original.jpg"
+                    ImageUrl = "/Images/burn-original.png"
                 },
                 new EnergyDrink
                 {
@@ -118,7 +118,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 80,
                     Ingredients = "Carbonated water, sugar, taurine, caffeine, natural flavors.",
                     ServingSize = "250 ml",
-                    ImageUrl = "https://example.com/burn-apple-kiwi.jpg"
+                    ImageUrl = "/Images/burn-apple-kiwi.png"
                 },
                 new EnergyDrink
                 {
@@ -129,7 +129,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 80,
                     Ingredients = "Carbonated water, sugar, taurine, caffeine, vitamins.",
                     ServingSize = "250 ml",
-                    ImageUrl = "https://example.com/hell-classic.jpg"
+                    ImageUrl = "/Images/hell-classic.png"
                 },
                 new EnergyDrink
                 {
@@ -140,7 +140,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 80,
                     Ingredients = "Carbonated water, sugar, taurine, caffeine, vitamins, flavorings.",
                     ServingSize = "250 ml",
-                    ImageUrl = "https://example.com/hell-watermelon.jpg"
+                    ImageUrl = "/Images/hell-watermelon.png"
                 },
                 new EnergyDrink
                 {
@@ -151,7 +151,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 200,
                     Ingredients = "Carbonated water, caffeine, electrolytes, natural flavors, vitamins.",
                     ServingSize = "355 ml",
-                    ImageUrl = "https://example.com/prime-blue-raspberry.jpg"
+                    ImageUrl = "/Images/prime-blue-raspberry.png"
                 },
                 new EnergyDrink
                 {
@@ -162,7 +162,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 200,
                     Ingredients = "Carbonated water, green tea extract, caffeine, ginger extract, vitamins.",
                     ServingSize = "355 ml",
-                    ImageUrl = "https://example.com/celsius-orange.jpg"
+                    ImageUrl = "/Images/celsius-orange.png"
                 },
                 new EnergyDrink
                 {
@@ -173,7 +173,7 @@ namespace WebsiteProject.Data
                     CaffeineContent = 160,
                     Ingredients = "Carbonated water, sugar, taurine, caffeine, guarana extract.",
                     ServingSize = "473 ml",
-                    ImageUrl = "https://example.com/nos-original.jpg"
+                    ImageUrl = "/Images/nos-original.png"
                 },
                 new EnergyDrink
 {
@@ -184,7 +184,7 @@ namespace WebsiteProject.Data
     CaffeineContent = 80,
     Ingredients = "Carbonated water, sucrose, glucose, taurine, caffeine, vitamins.",
     ServingSize = "250 ml",
-    ImageUrl = "https://example.com/redbull-tropical.jpg"
+    ImageUrl = "/Images/redbull-tropical.png"
 },
 new EnergyDrink
 {
@@ -195,7 +195,7 @@ new EnergyDrink
     CaffeineContent = 150,
     Ingredients = "Carbonated water, citric acid, taurine, caffeine, B vitamins.",
     ServingSize = "500 ml",
-    ImageUrl = "https://example.com/monster-ultra-white.jpg"
+    ImageUrl = "/Images/monster-ultra-white.png"
 },
 new EnergyDrink
 {
@@ -206,7 +206,7 @@ new EnergyDrink
     CaffeineContent = 150,
     Ingredients = "Carbonated water, sugar, citric acid, taurine, caffeine, natural flavors.",
     ServingSize = "500 ml",
-    ImageUrl = "https://example.com/monster-aussie-lemonade.jpg"
+    ImageUrl = "/Images/monster-aussie-lemonade.png"
 },
 new EnergyDrink
 {
@@ -217,7 +217,7 @@ new EnergyDrink
     CaffeineContent = 160,
     Ingredients = "Carbonated water, sugar, taurine, caffeine, guarana, vitamins.",
     ServingSize = "500 ml",
-    ImageUrl = "https://example.com/rockstar-guava.jpg"
+    ImageUrl = "/Images/rockstar-guava.png"
 },
 new EnergyDrink
 {
@@ -228,7 +228,7 @@ new EnergyDrink
     CaffeineContent = 80,
     Ingredients = "Carbonated water, sugar, caffeine, taurine, flavorings.",
     ServingSize = "250 ml",
-    ImageUrl = "https://example.com/burn-black.jpg"
+    ImageUrl = "/Images/burn-black.png"
 },
 new EnergyDrink
 {
@@ -239,7 +239,7 @@ new EnergyDrink
     CaffeineContent = 100,
     Ingredients = "Carbonated water, sugar, taurine, caffeine, vitamins.",
     ServingSize = "250 ml",
-    ImageUrl = "https://example.com/hell-apple.jpg"
+    ImageUrl = "/Images/hell-apple.png"
 },
 new EnergyDrink
 {
@@ -250,7 +250,7 @@ new EnergyDrink
     CaffeineContent = 200,
     Ingredients = "Carbonated water, caffeine, electrolytes, natural flavors.",
     ServingSize = "355 ml",
-    ImageUrl = "https://example.com/prime-tropical.jpg"
+    ImageUrl = "/Images/prime-tropical.png"
 },
 new EnergyDrink
 {
@@ -261,7 +261,7 @@ new EnergyDrink
     CaffeineContent = 200,
     Ingredients = "Carbonated water, green tea extract, caffeine, ginger, vitamins.",
     ServingSize = "355 ml",
-    ImageUrl = "https://example.com/celsius-berry.jpg"
+    ImageUrl = "/Images/celsius-berry.png"
 },
 new EnergyDrink
 {
@@ -272,7 +272,7 @@ new EnergyDrink
     CaffeineContent = 160,
     Ingredients = "Carbonated water, sugar, taurine, caffeine, guarana.",
     ServingSize = "473 ml",
-    ImageUrl = "https://example.com/nos-grape.jpg"
+    ImageUrl = "/Images/nos-grape.png"
 }
                 
             };

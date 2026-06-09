@@ -132,7 +132,7 @@
 .drink-image {
     width: 100%;
     height: 165px;
-    object-fit: cover;
+    object-fit: contain;
     background: linear-gradient(135deg, #e9f3ff, #cdd8e0);
 }
 

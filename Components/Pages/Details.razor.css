@@ -24,7 +24,7 @@
     width: 100%;
     aspect-ratio: 4 / 5;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: contain;
     background: linear-gradient(135deg, #e9f3ff, #cdd8e0);
 }
 
